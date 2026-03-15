@@ -15,10 +15,11 @@ export default async function ProfilePage() {
 
   return (
     <div className="pb-6">
-      <PageHeader title="Profile" backHref="/dashboard" />
       <ProfileClient
-        name={user.name ?? ""}
-        phone={user.phone}
+        user={{
+          name: user.name,
+          phone: user.phone
+        }}
       />
     </div>
   );

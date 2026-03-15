@@ -39,28 +39,75 @@ export function NamePopup({
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
-      <div className="bg-white rounded-2xl border border-zinc-200 shadow-xl max-w-sm w-full p-6">
-        <h2 className="text-lg font-semibold text-zinc-900 mb-2">
+    <div
+      style={{
+        position: "fixed", inset: 0, zIndex: 50,
+        display: "flex", alignItems: "center", justifyContent: "center",
+        background: "rgba(0,0,0,0.45)", padding: 24,
+        backdropFilter: "blur(4px)",
+      }}
+    >
+      <div
+        className="animate-slide-up"
+        style={{
+          background: "#FF9EB7",
+          borderRadius: 24, padding: "28px 24px",
+          maxWidth: 360, width: "100%",
+          boxShadow: "0 24px 64px rgba(0,0,0,0.25)",
+          position: "relative", overflow: "hidden",
+        }}
+      >
+        {/* Shine */}
+        <div style={{
+          position: "absolute", top: 0, left: 0, right: 0, height: "40%",
+          borderRadius: "24px 24px 0 0",
+          background: "linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 100%)",
+          pointerEvents: "none",
+        }} />
+
+        <h2
+          style={{
+            fontFamily: "Montserrat, sans-serif", fontWeight: 800, fontSize: 20,
+            color: "white", margin: "0 0 6px 0",
+          }}
+        >
           What should we call you?
         </h2>
-        <p className="text-sm text-zinc-500 mb-4">
+        <p
+          style={{
+            fontFamily: "Montserrat, sans-serif", fontWeight: 500, fontSize: 13,
+            color: "rgba(255,255,255,0.8)", margin: "0 0 20px 0", lineHeight: 1.5,
+          }}
+        >
           Enter your name so friends can recognize you in groups.
         </p>
-        <form onSubmit={handleSubmit}>
+
+        <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 14 }}>
           <input
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Your name"
-            className="w-full px-4 py-3 rounded-xl bg-zinc-50 border border-zinc-200 text-zinc-900 placeholder-zinc-400 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none mb-4"
+            style={{
+              width: "100%", boxSizing: "border-box",
+              background: "rgba(255,255,255,0.88)",
+              border: "1.5px solid rgba(255,255,255,0.5)",
+              borderRadius: 14, padding: "13px 18px",
+              fontFamily: "Montserrat, sans-serif", fontWeight: 500, fontSize: 15,
+              color: "#4A1A20", outline: "none",
+            }}
             required
             autoFocus
           />
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3 rounded-xl bg-primary-500 text-white font-semibold hover:bg-primary-600 disabled:opacity-50 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+            className="btn-cta"
+            style={{
+              border: "none", cursor: loading ? "not-allowed" : "pointer",
+              opacity: loading ? 0.7 : 1,
+              fontFamily: "Montserrat, sans-serif", fontWeight: 700, fontSize: 15,
+            }}
           >
             {loading ? "Saving…" : "Save"}
           </button>

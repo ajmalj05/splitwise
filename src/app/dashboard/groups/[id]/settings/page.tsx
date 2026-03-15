@@ -28,8 +28,8 @@ export default async function GroupSettingsPage({
     <div className="pb-6">
       <PageHeader title="Group settings" backHref={`/dashboard/groups/${id}`} />
       <div className="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 animate-slide-up transition-shadow duration-200 hover:shadow-md">
-        <p className="text-zinc-600 font-medium">{group.name}</p>
-        <p className="text-sm text-zinc-500 mt-1">Group settings and members can be managed from the group page.</p>
+        <p className="text-[#1F2937] font-medium">{group.name}</p>
+        <p className="text-sm text-[#6B7280] mt-1">Group settings and members can be managed from the group page.</p>
       </div>
     </div>
   );

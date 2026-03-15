@@ -88,7 +88,7 @@ export default async function ExpenseDetailPage({
         {/* Expense summary: square icon, title, amount, group tag, receipt thumb (reference) */}
         <div className="p-6 flex items-start gap-4">
           <div className="shrink-0 flex flex-col gap-2">
-            <div className="w-14 h-14 rounded-xl bg-zinc-100 flex items-center justify-center text-zinc-600 border border-zinc-200">
+            <div className="w-14 h-14 rounded-xl bg-[#AFC6E9] flex items-center justify-center text-[#1F2937] border border-[#8FB5E8]">
               <CategoryFoodIcon className="w-7 h-7" />
             </div>
             {e.receiptKey && (
@@ -103,17 +103,17 @@ export default async function ExpenseDetailPage({
             )}
           </div>
           <div className="flex-1 min-w-0">
-            <h2 className="text-xl font-bold text-zinc-900">{e.title}</h2>
-            <p className="text-2xl font-bold text-zinc-900 mt-0.5">
+            <h2 className="text-xl font-bold text-[#1F2937]">{e.title}</h2>
+            <p className="text-2xl font-bold text-[#1F2937] mt-0.5">
               {e.currency} {e.amount.toFixed(2)}
             </p>
             <div className="flex items-center gap-2 mt-2">
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-zinc-200 text-sm text-zinc-600">
-                <HomeIcon className="w-4 h-4" />
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-[#8FB5E8] text-sm text-[#6B7280]">
+                <HomeIcon className="w-4 h-4 text-[#6C9BD2]" />
                 {groupName}
               </span>
             </div>
-            <p className="text-sm text-zinc-500 mt-3">
+            <p className="text-sm text-[#6B7280] mt-3">
               {expenseDate.toLocaleDateString()}
             </p>
             <p className="text-sm text-zinc-500">
@@ -127,24 +127,24 @@ export default async function ExpenseDetailPage({
 
         {/* Payment & split - payer then who owes (reference) */}
         <div className="border-t border-zinc-200 p-6">
-          <h3 className="text-sm font-semibold text-zinc-800 mb-3">Payment & split</h3>
+          <h3 className="text-sm font-semibold text-[#1F2937] mb-3">Payment & split</h3>
           {payments.map((p) => (
             <div key={p.userId} className="flex items-center gap-3 py-2">
-              <div className="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 font-semibold text-sm shrink-0">
+              <div className="w-10 h-10 rounded-full bg-[#AFC6E9] flex items-center justify-center text-[#1F2937] font-semibold text-sm shrink-0">
                 {(p.userName ?? "?").slice(0, 1)}
               </div>
-              <span className="text-zinc-900 font-medium">
+              <span className="text-[#1F2937] font-medium">
                 {p.userName ?? "Someone"} paid {e.currency} {p.amount.toFixed(2)}
               </span>
             </div>
           ))}
-          <div className="mt-4 pl-6 border-l-2 border-zinc-200 space-y-3">
+          <div className="mt-4 pl-6 border-l-2 border-[#8FB5E8] space-y-3">
             {Object.entries(e.splitDetails || {}).map(([userId, share]) => (
               <div key={userId} className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-zinc-200 flex items-center justify-center text-zinc-600 font-medium text-xs shrink-0">
+                <div className="w-8 h-8 rounded-full bg-[#EEF2F7] flex items-center justify-center text-[#6B7280] font-medium text-xs shrink-0">
                   {(userMap.get(userId) ?? "?").slice(0, 1)}
                 </div>
-                <span className="text-zinc-700 text-sm">
+                <span className="text-[#1F2937] text-sm">
                   {userId === session.userId ? "You" : userMap.get(userId)} owe {e.currency} {share.toFixed(2)}
                 </span>
               </div>
@@ -155,7 +155,7 @@ export default async function ExpenseDetailPage({
         {/* Spending by category (reference) */}
         <div className="border-t border-zinc-200 p-6">
           <div className="bg-zinc-100 -mx-6 px-6 py-2 mb-3">
-            <h3 className="text-sm font-bold text-zinc-800">Spending by category</h3>
+            <h3 className="text-sm font-bold text-[#1F2937]">Spending by category</h3>
           </div>
           <p className="text-sm text-zinc-600 mb-3">{groupName} :: Dining out</p>
           <div className="flex items-end gap-6">
@@ -165,7 +165,7 @@ export default async function ExpenseDetailPage({
               <p className="text-xs font-medium text-zinc-700">₹0.00</p>
             </div>
             <div className="flex-1 text-center min-w-0">
-              <div className="bg-primary-200 rounded-t max-w-[56px] mx-auto w-full h-14" />
+              <div className="bg-[#6C9BD2] rounded-t max-w-[56px] mx-auto w-full h-14" />
               <p className="text-xs text-zinc-500 mt-1">June</p>
               <p className="text-xs font-medium text-zinc-700">₹{e.amount.toFixed(2)}</p>
             </div>

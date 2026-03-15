@@ -5,26 +5,75 @@ type Props = {
   title: string;
   backHref?: string;
   right?: React.ReactNode;
+  titleColor?: string;
 };
 
-/** Same header on every page: dark slate, white text, smooth transition */
-export function PageHeader({ title, backHref, right }: Props) {
+export function PageHeader({ title, backHref, right, titleColor }: Props) {
   return (
-    <header className="bg-slate-800 rounded-b-2xl -mx-4 px-4 pt-3 pb-4 mb-4 shadow-lg animate-fade-in">
-      <div className="flex items-center justify-between">
+    <header
+      className="animate-fade-in"
+      style={{
+        background: "transparent",
+        padding: "16px 0 12px 0",
+        marginBottom: 4,
+      }}
+    >
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         {backHref ? (
           <Link
             href={backHref}
-            className="p-2 -ml-2 rounded-full text-white/90 hover:bg-white/10 hover:text-white transition-all duration-200"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: 40,
+              height: 40,
+              borderRadius: "50%",
+              background: "rgba(108, 155, 210, 0.1)",
+              color: "#6C9BD2",
+              transition: "background 0.2s",
+              flexShrink: 0,
+            }}
             aria-label="Back"
           >
-            <BackIcon className="w-6 h-6" />
+            <BackIcon className="w-5 h-5" />
           </Link>
         ) : (
-          <div className="w-10 h-10" />
+          <div style={{ width: 40, height: 40 }} />
         )}
-        <h1 className="text-lg font-semibold text-white tracking-tight">{title}</h1>
-        {right != null ? <div className="min-w-[40px] flex justify-end text-white/90">{right}</div> : <div className="w-10 h-10" />}
+
+        <h1
+          style={{
+            fontFamily: "Montserrat, sans-serif",
+            fontWeight: 700,
+            fontSize: 18,
+            color: titleColor || "#1F2937",
+            letterSpacing: "-0.3px",
+            margin: 0,
+            textAlign: "center",
+            flex: 1,
+          }}
+        >
+          {title}
+        </h1>
+
+        {right != null ? (
+          <div
+            style={{
+              minWidth: 40,
+              display: "flex",
+              justifyContent: "flex-end",
+              color: "#6C9BD2",
+              fontFamily: "Montserrat, sans-serif",
+              fontWeight: 600,
+              fontSize: 14,
+            }}
+          >
+            {right}
+          </div>
+        ) : (
+          <div style={{ width: 40 }} />
+        )}
       </div>
     </header>
   );

@@ -153,7 +153,7 @@ export function AddExpenseForm({
     <form id={formId} onSubmit={handleSubmit} className="space-y-6 max-w-lg">
       {/* Category/description row - reference: pink square icon + input */}
       <div className="flex items-center gap-3">
-        <div className="w-12 h-12 rounded-xl bg-pink-100 flex items-center justify-center text-zinc-600 shrink-0 border border-pink-200">
+        <div className="w-12 h-12 rounded-xl bg-[#AFC6E9] flex items-center justify-center text-[#1F2937] shrink-0 border border-[#8FB5E8]">
           <CategoryFoodIcon className="w-6 h-6" />
         </div>
         <input
@@ -161,12 +161,12 @@ export function AddExpenseForm({
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           placeholder="e.g. Taxi, Dinner"
-          className="flex-1 px-4 py-3 border-b-2 border-zinc-200 focus:border-primary-500 outline-none bg-transparent text-zinc-900 placeholder-zinc-400 font-medium"
+          className="flex-1 px-4 py-3 border-b-2 border-zinc-200 focus:border-[#6C9BD2] outline-none bg-transparent text-[#1F2937] placeholder-zinc-400 font-medium"
           required
         />
       </div>
       {/* Amount - reference: grey $ box + large input with mint underline */}
-      <div className="flex items-center gap-2 border-b-2 border-zinc-200 focus-within:border-primary-500 transition-colors pb-2">
+      <div className="flex items-center gap-2 border-b-2 border-zinc-200 focus-within:border-[#6C9BD2] transition-colors pb-2">
         <span className="text-zinc-500 font-medium bg-zinc-100 px-3 py-2.5 rounded-lg shrink-0 flex items-center justify-center">
           <CurrencyIcon className="w-5 h-5" />
         </span>
@@ -177,7 +177,7 @@ export function AddExpenseForm({
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
           placeholder="0.00"
-          className="flex-1 bg-transparent text-zinc-900 text-xl font-semibold outline-none py-1 placeholder-zinc-400"
+          className="flex-1 bg-transparent text-[#1F2937] text-xl font-semibold outline-none py-1 placeholder-zinc-400"
           required
         />
       </div>
@@ -185,7 +185,7 @@ export function AddExpenseForm({
       <div className="rounded-xl bg-zinc-100 px-4 py-2.5 text-sm text-zinc-600">
         Paid by you and split equally
         {amountNum > 0 && members.length > 0 && (
-          <span className="block text-xs text-zinc-500 mt-0.5">(₹{perPerson.toFixed(2)}/person)</span>
+          <span className="block text-xs text-[#6B7280] mt-0.5">(₹{perPerson.toFixed(2)}/person)</span>
         )}
       </div>
 
@@ -203,7 +203,7 @@ export function AddExpenseForm({
           Receipt
         </span>
         <span className="flex items-center gap-1.5">
-          <PencilIcon className="w-4 h-4 text-primary-600" />
+          <PencilIcon className="w-4 h-4 text-[#6C7AE0]" />
           Note
         </span>
       </div>
@@ -216,7 +216,7 @@ export function AddExpenseForm({
             <select
               value={p.userId}
               onChange={(e) => updatePayer(i, "userId", e.target.value)}
-              className="flex-1 px-3 py-2.5 rounded-lg bg-white border border-zinc-200 text-zinc-900 text-sm focus:ring-2 focus:ring-primary-500 outline-none"
+              className="flex-1 px-3 py-2.5 rounded-lg bg-white border border-zinc-200 text-[#1F2937] text-sm focus:ring-2 focus:ring-[#6C9BD2] outline-none"
             >
               {members.map((m) => (
                 <option key={m._id} value={m._id}>{m.name || m.phone}</option>
@@ -229,7 +229,7 @@ export function AddExpenseForm({
               placeholder="Amount"
               value={p.amount}
               onChange={(e) => updatePayer(i, "amount", e.target.value)}
-              className="w-28 px-3 py-2.5 rounded-lg bg-white border border-zinc-200 text-zinc-900 text-sm focus:ring-2 focus:ring-primary-500 outline-none"
+              className="w-28 px-3 py-2.5 rounded-lg bg-white border border-zinc-200 text-[#1F2937] text-sm focus:ring-2 focus:ring-[#6C9BD2] outline-none"
             />
             {payments.length > 1 && (
               <button
@@ -242,7 +242,7 @@ export function AddExpenseForm({
             )}
           </div>
         ))}
-        <button type="button" onClick={addPayer} className="text-sm text-primary-600 hover:text-primary-700 transition">
+        <button type="button" onClick={addPayer} className="text-sm text-[#6C9BD2] hover:text-[#5C87C4] transition">
           + Add another payer
         </button>
       </div>
@@ -257,7 +257,7 @@ export function AddExpenseForm({
                 name="splitType"
                 checked={splitType === t}
                 onChange={() => setSplitType(t)}
-                className="accent-primary-500"
+                className="accent-[#6C9BD2]"
               />
               <span className="text-sm text-zinc-700 capitalize">{t}</span>
             </label>
@@ -319,7 +319,7 @@ export function AddExpenseForm({
       <button
         type="submit"
         disabled={loading}
-        className="px-5 py-3 rounded-xl bg-primary-500 text-white font-semibold hover:bg-primary-600 disabled:opacity-50 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+        className="px-5 py-3 rounded-xl bg-[#6C9BD2] text-white font-semibold hover:bg-[#5C87C4] disabled:opacity-50 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
       >
         {loading ? "Saving…" : "Add expense"}
       </button>
