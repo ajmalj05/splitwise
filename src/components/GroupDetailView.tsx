@@ -144,6 +144,23 @@ export function GroupDetailView({
             <SettingsIcon className="w-5 h-5 text-[#64748B]" />
           </Link>
         </div>
+
+        {/* ── Add Expense Option at Top ── */}
+        <div style={{ position: "relative", zIndex: 1, width: "100%", display: "flex", justifyContent: "center", marginTop: 28 }}>
+          <Link
+            href={`/dashboard/groups/${groupId}/expense/new`}
+            style={{
+              display: "inline-flex", alignItems: "center",
+              fontWeight: 800, fontSize: 15,
+              color: "white", textDecoration: "none",
+              padding: "14px 28px", borderRadius: 999, whiteSpace: "nowrap",
+              background: "linear-gradient(90deg, #6C9BD2 0%, #5C87C4 100%)",
+              boxShadow: "0 8px 25px rgba(108, 155, 210, 0.4)",
+            }}
+          >
+            + Add expense
+          </Link>
+        </div>
       </div>
        <div style={{ padding: "0 20px", marginTop: -35, position: "relative", zIndex: 1 }}>
         {/* ── Member avatars row ── */}
@@ -223,22 +240,9 @@ export function GroupDetailView({
               {label}
             </button>
           ))}
-          <Link
-            href={`/dashboard/groups/${groupId}/expense/new`}
-            style={{
-              flexShrink: 0, display: "inline-flex", alignItems: "center",
-              fontWeight: 800, fontSize: 14,
-              color: "white", textDecoration: "none",
-              padding: "12px 22px", borderRadius: 999, whiteSpace: "nowrap",
-               background: "linear-gradient(90deg, #6C9BD2 0%, #5C87C4 100%)",
-              boxShadow: "0 8px 20px rgba(108, 155, 210, 0.2)",
-            }}
-          >
-            + Add expense
-          </Link>
         </div>
       </div>
-d      <div style={{ padding: "0 20px" }}>
+      <div style={{ padding: "0 20px" }}>
         {/* ── Tab Content ── */}
         {tab === "settle" && (
           <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>

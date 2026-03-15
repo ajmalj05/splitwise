@@ -48,7 +48,9 @@ export default function BottomNav() {
                 color: isActive ? "white" : "#64748B"
               }}>
                 {item.icon}
-                <span style={{ fontSize: 13, fontWeight: isActive ? 800 : 700 }}>{item.label}</span>
+                {isActive && (
+                  <span style={{ fontSize: 13, fontWeight: 800 }}>{item.label}</span>
+                )}
               </div>
             </Link>
           );
